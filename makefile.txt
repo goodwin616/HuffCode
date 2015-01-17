@@ -1,0 +1,20 @@
+#Blake Goodwin
+#CS2150 - Lab 102
+# Lab 10 - Makefile - Prelab
+
+CXX=clang++ 
+
+OFILES = huffmanenc.o heap.o node.o
+
+.SUFFIXES: .o .cpp
+
+make: $(OFILES)
+	$(CXX) $(OFILES)
+
+clean:
+	-rm -f *.o *~ outputfile
+
+heap.o: heap.cpp heap.h node.h
+huffmanenc.o: huffmanenc.cpp node.h heap.h
+node.o: node.cpp node.h
+
